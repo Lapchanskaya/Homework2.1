@@ -72,11 +72,11 @@ public class Main {
 
         printSeparation2();
 
-        Car carLada = new Car(" Lada "," Granta ", 2015,  " Россия ", " Желтый ", 1.7);
+        Car carLada = new Car(" Lada ", null, 2015,  " Россия ", " Желтый ", 0);
         Car carAudi = new Car(" Audi ", " A8 50 L TDI quattro ", 2020, " Германия ", " Черный ",3.0);
-        Car carBMW = new Car(" BMW ", " Z8 ", 2021, " Германия ", " Черный ",3.0);
-        Car carKia = new Car(" Kia ", " Sportage 4-го поколения ", 2018, " Южная Корея ", " Красный ",2.4);
-        Car carHyundai = new Car(" Hyundai ", " Avante ", 2016, " Южная Корея ", " Оранжевый ",1.6);
+        Car carBMW = new Car(" BMW ", " Z8 ", 2021, " Германия ", "",3.0);
+        Car carKia = new Car(" Kia ", " Sportage 4-го поколения ", 0, " Южная Корея ", " Красный ",2.4);
+        Car carHyundai = new Car(" Hyundai ", " Avante ", 2016, " Южная Корея ", " Оранжевый ",0);
 
 
         System.out.println(carLada);
