@@ -34,8 +34,8 @@ public class Car {
     public static double validateEnginePower ( double engineVolume){
         return engineVolume <= 0 ? 1.5 : engineVolume;
     }
-    public static int validateYear ( int year){
-        return year <= 0 ? year : 2000;
+    public static Integer validateYear (Integer year){
+        return year == null ? 2000 : year;
     }
 
     public static String validateCarParameters(String value){
