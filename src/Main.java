@@ -1,5 +1,4 @@
-import transport.Bus;
-import transport.Car;
+import transport.*;
 
 import java.time.LocalDate;
 
@@ -11,68 +10,126 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Car carLada = new Car( "Lada", "Granta", 2015, "Россия", "желтый",150,"седан",
-                false, "МКПП","и015ка199",4,3.0,
-                new Car.Key( true, true));
+        DriverB driverB = new DriverB(
+                "Иванов Иван Иванович, Категории В",
+                true,
+                6);
 
-        Car carAudi = new Car("Audi", "50 L TDI quattro",2020, "Германия","черный", 200,
-                "седан", false, "Вариатор", "р889ка179",4, 3.0,
-                new Car.Key( false, false));
+        DriverC driverC = new DriverC(
+                "Федоров Федор Федорович, Категории С",
+                true,
+                5);
 
-        Car carBMW = new Car( "BMW", "Z8", 2021, "Германия","черный", -250,
-                "родстер", true, "АКПП", "и007ос099", 2, 3.0,
-                new Car.Key( false, true));
-
-        Car carKia = new Car("Kia", "Sportage 4-го поколения",2020, "Южная Корея", "Красный", 200,
-                "кроссовер", false, "АКПП", "а000аа37",5,2.4,
-                new Car.Key( true, false));
-        Car carHyundai = new Car( "Hyundai", "Avante",2016,"Южная Корея", "Оранжевый", 160,
-                "седан", false, "МКПП", "с065мк199", 5, 1.6,
-                new Car.Key( true, true));
+        DriverD driverD = new DriverD(
+                "Ильин Кирилл Андреевич, Категории D",
+                false,
+                2);
 
 
-
-
-        System.out.println(carLada );
-        printSeparation();
-        System.out.println(carAudi);
-        printSeparation();
-        System.out.println(carBMW);
-        printSeparation();
-        System.out.println(carKia);
-        printSeparation();
-        System.out.println(carHyundai);
-        printSeparation();
 
 
         Bus bus1 = new Bus(
-                "ЛиАЗ",
-                "5292",
-                2004,
-                "Россия",
-                "Белый",
-                90);
+                "Volvo",
+                "9700",
+                2.5, driverD);
 
         Bus bus2 = new Bus(
-                "Volvo",
-                "9500",
-                2010,
-                "Швеция",
-                "Серебристый",
-                110);
+                "ЛиАЗ",
+                "5292",
+                6.9, driverD);
 
         Bus bus3 = new Bus(
+                "Hyundai",
+                "Universe",
+                12.74, driverD);
+
+        Bus bus4 = new Bus(
+                "ПАЗ",
+                "Вектор Next",
+                4.43, driverD);
+
+
+        Car car1 = new Car (
+                "BMW",
+                "X6",
+                4.4, driverB);
+
+        Car car2 = new Car (
+                "HAVAL",
+                "Jolion",
+                1.4,driverB);
+
+        Car car3 = new Car (
+                "Lada",
+                "ВАЗ-2106",
+                1.6, driverB);
+
+        Car car4 = new Car (
+                "Chevrolet",
+                "Impala",
+                5.4, driverB);
+
+
+        Truck truck1 = new Truck(
+                "IVECO",
+                "EuroStar",
+                12.8, driverC );
+
+        Truck truck2 = new Truck(
+                "Hyundai",
+                "Porter",
+                2.5, driverC);
+
+        Truck truck3 = new Truck(
                 "Scania",
-                "OmniLink",
-                1998,
-                "Швеция",
-                "Черный",
-                100);
+                "S-Series",
+                16.0, driverC);
+
+        Truck truck4 = new Truck(
+                "VOLVO",
+                "FH",
+                16.0, driverC);
+
 
         System.out.println(bus1);
-        printSeparation();
         System.out.println(bus2);
-        printSeparation();
         System.out.println(bus3);
+        System.out.println(bus4);
+        printSeparation();
+        System.out.println(car1);
+        System.out.println(car2);
+        System.out.println(car3);
+        System.out.println(car4);
+        printSeparation();
+        System.out.println(truck1);
+        System.out.println(truck2);
+        System.out.println(truck3);
+        System.out.println(truck4);
+
+        printSeparation();
+        printInfo(car1);
+        printInfo(car2);
+        printInfo(car3);
+        printInfo(car4);
+        printSeparation();
+        printInfo(bus1);
+        printInfo(bus2);
+        printInfo(bus3);
+        printInfo(bus4);
+        printSeparation();
+        printInfo(truck1);
+        printInfo(truck2);
+        printInfo(truck3);
+        printInfo(truck4);
+
+
+
     }
+
+  private static void printInfo( Transport<?> transport){
+      System.out.println( " Водитель " + transport.getDriver().getFullName() + " управляет автомобилем " + transport.getBrand() + " и будет участвовать в заезде. ");
+  }
+
+
+
 }
