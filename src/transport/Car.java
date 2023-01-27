@@ -2,11 +2,60 @@ package transport;
 
 public class Car  extends Transport<DriverB> {
 
+    private BodyType bodyType;
+
+    public enum BodyType {
+        TYPE1("Седан"),
+        TYPE2("Хетчбек"),
+        TYPE3("Купе"),
+        TYPE4("Универсал"),
+        TYPE5("Внедорожник"),
+        TYPE6("Кроссовер"),
+        TYPE7("Пикап"),
+        TYPE8("Фургон"),
+        TYPE9("Минивэн");
+
+        private String name;
+
+        BodyType(String name) {
+            this.name = name;
+        }
+        public String getName() {
+            return name;
+        }
+        @Override
+        public String toString() {
+            return "Тип кузова " + name;
+        }
+
+
+    }
+
+
     public Car(String brand,
                String model,
                double engineVolume,
-               DriverB driver) {
+               DriverB driver, BodyType bodyType) {
         super(brand, model, engineVolume, driver);
+        this.bodyType=bodyType;
+
+    }
+
+    public BodyType getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(BodyType bodyType) {
+        this.bodyType = bodyType;
+    }
+
+    @Override
+    public String toString() {
+        if (bodyType == null) {
+            return "Легковой автомобиль " + super.toString() + "\n    Тип кузова: не указан";
+        } else {
+            return " Легковой автомобиль " + super.toString() + "\n    " + bodyType;
+        }
     }
 
     @Override
@@ -42,6 +91,15 @@ public class Car  extends Transport<DriverB> {
         System.out.println(" Максимальная скорость  для автомобиля: " + maxSpeed);
     }
 
+    @Override
+    public void printType() {
+        if (bodyType == null) {
+            System.out.println("Данных по транспортному средству " + getBrand() + " " + getModel() + " недостаточно.");
+        } else {
+            System.out.println("Тип транспортного средства: легковой автомобиль " + getBrand() +
+                    " " + getModel() + ". " + bodyType);
+        }
+    }
 
 }
 

@@ -2,12 +2,60 @@ package transport;
 
 public class Truck extends Transport<DriverC> {
 
+    private TruckCapacity truckCapacity;
+    public enum TruckCapacity {
+        N1(null, 3.5f),
+        N2(3.5f, 12.0f),
+        N3(12.0f, null);
+
+        private final Float minValue;
+        private final Float maxValue;
+
+        TruckCapacity(Float minValue, Float maxValue) {
+            this.minValue = minValue;
+            this.maxValue = maxValue;
+        }
+
+        @Override
+        public String toString() {
+            if (minValue == null) {
+                return "Грузоподъемность: до " + maxValue + " тонн";
+            } else if (maxValue == null) {
+                return "Грузоподъемность: свыше " + minValue + " тонн";
+            } else {
+                return "Грузоподъемность: от " + minValue + " до " + maxValue + " тонн";
+            }
+        }
+    }
+
+
+
     public Truck(String brand,
                  String model,
                  double engineVolume,
-                 DriverC driver) {
+                 DriverC driver,
+                 TruckCapacity truckCapacity ) {
         super(brand, model, engineVolume, driver);
+        this.truckCapacity = truckCapacity;
     }
+
+    public TruckCapacity getTruckCapacity() {
+        return truckCapacity;
+    }
+
+    public void setTruckCapacity(TruckCapacity truckCapacity) {
+        this.truckCapacity = truckCapacity;
+    }
+
+    @Override
+    public String toString() {
+        if (truckCapacity == null) {
+            return "Грузовой автомобиль " + super.toString() + "\n    Грузоподъемность: не указана";
+        } else {
+            return "Грузовой автомобиль " + super.toString() + "\n    " + truckCapacity;
+        }
+    }
+
 
     @Override
     public void startMove() {
@@ -40,5 +88,14 @@ public class Truck extends Transport<DriverC> {
         int maxBound = 140;
         int maxSpeed = (int) (minBound + (maxBound - minBound)*Math.random());
         System.out.println(" Максимальная скорость  для  грузового автомобиля: " + maxSpeed);
+    }
+
+    @Override
+    public void printType() {
+        if (truckCapacity == null) {
+            System.out.println("Данных по транспортному средству " + getBrand() + " " + getModel() + " недостаточно.");
+        } else {
+            System.out.println("Тип транспортного средства: грузовой автомобиль " + getBrand() + " " + getModel() + ". " + truckCapacity);
+        }
     }
 }
