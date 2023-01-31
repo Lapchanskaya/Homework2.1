@@ -186,12 +186,35 @@ public class Main {
         bus4.printType();
 
 
+        printSeparation();
+        testTransport( car1, car2, car3, car4,truck1,truck2,truck3,truck4, bus2);
+
+
     }
+
+
 
     private static void printInfo( Transport<?> transport){
         System.out.println( " Водитель " + transport.getDriver().getFullName() + " управляет автомобилем " + transport.getBrand() + " и будет участвовать в заезде. ");
     }
 
+
+
+
+    public static void testTransport( Transport... transports) {
+        int count = 0;
+        for (Transport transport : transports)
+            if (!transport.passDiagnostics()) {
+                try {
+                    throw new RuntimeException(transport.getBrand() + " " + transport.getModel() + " Не прошел диагностику! ");
+                } catch (RuntimeException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                count++;
+            }
+        System.out.println(" Диагностику прошли " + count + " из " + transports.length + " автомобилей") ;
+    }
 
 
     }
