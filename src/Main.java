@@ -189,11 +189,16 @@ public class Main {
 
         printSeparation();
 
+        printInfoAboutDiagnostics(car2);
         printInfoAboutDiagnostics(car1);
+        printInfoAboutDiagnostics(car3);
+        printInfoAboutDiagnostics(car4);
         printInfoAboutDiagnostics(truck1);
-        printInfoAboutDiagnostics(bus1);
         printInfoAboutDiagnostics(truck2);
-        printInfoAboutDiagnostics(bus2);
+        printInfoAboutDiagnostics(truck3);
+        printInfoAboutDiagnostics(truck4);
+        printInfoAboutDiagnostics(bus1);
+        printInfoAboutDiagnostics(bus4);
 
 
     }
