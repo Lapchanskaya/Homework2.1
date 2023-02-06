@@ -110,4 +110,10 @@ public class Bus extends Transport<DriverD>{
             System.out.println("Тип транспортного средства: автобус " + getBrand() + " " + getModel() + ". " + capacity);
         }
     }
+
+    @Override
+    public boolean passDiagnostics() {
+        throw new TransportTypeException("Автобусы не проходят диагностику.");
+    }
 }
+

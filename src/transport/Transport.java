@@ -3,11 +3,11 @@ package transport;
 
 import static transport.ValidateUtils.validateString;
 
-public  abstract class Transport<T extends Driver> implements Competing{
+public  abstract class Transport<T extends Driver> implements Competing {
 
     private final String brand;
     private final String model;
-    private  double engineVolume;
+    private double engineVolume;
     private T driver;
 
 
@@ -46,20 +46,23 @@ public  abstract class Transport<T extends Driver> implements Competing{
         this.engineVolume = engineVolume;
     }
 
-    public static double validateEnginePower ( double engineVolume){
+    public static double validateEnginePower(double engineVolume) {
         return engineVolume <= 0 ? 1.6 : engineVolume;
     }
-    public static String validateCarParameters(String value){
-        return validateString (value, "default");
+
+    public static String validateCarParameters(String value) {
+        return validateString(value, "default");
     }
 
 
     public abstract void startMove();
+
     public abstract void finishMove();
+
     public abstract void printType();
 
 
-
+    public abstract boolean passDiagnostics() throws TransportTypeException;
 
 
     @Override
@@ -70,3 +73,6 @@ public  abstract class Transport<T extends Driver> implements Competing{
     }
 
 }
+
+
+

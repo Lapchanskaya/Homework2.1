@@ -186,14 +186,43 @@ public class Main {
         bus4.printType();
 
 
+
+        printSeparation();
+
+        printInfoAboutDiagnostics(car2);
+        printInfoAboutDiagnostics(car1);
+        printInfoAboutDiagnostics(car3);
+        printInfoAboutDiagnostics(car4);
+        printInfoAboutDiagnostics(truck1);
+        printInfoAboutDiagnostics(truck2);
+        printInfoAboutDiagnostics(truck3);
+        printInfoAboutDiagnostics(truck4);
+        printInfoAboutDiagnostics(bus1);
+        printInfoAboutDiagnostics(bus4);
+
+
     }
+
+
 
     private static void printInfo( Transport<?> transport){
         System.out.println( " Водитель " + transport.getDriver().getFullName() + " управляет автомобилем " + transport.getBrand() + " и будет участвовать в заезде. ");
     }
 
+    public static void printInfoAboutDiagnostics(Transport<?> transport) {
+        try {
+            transport.passDiagnostics();
+        } catch (TransportTypeException e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
 
 
     }
+
+
+
 
 

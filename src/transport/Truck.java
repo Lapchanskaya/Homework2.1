@@ -98,4 +98,10 @@ public class Truck extends Transport<DriverC> {
             System.out.println("Тип транспортного средства: грузовой автомобиль " + getBrand() + " " + getModel() + ". " + truckCapacity);
         }
     }
+
+    @Override
+    public boolean passDiagnostics() {
+        System.out.println("Грузовой автомобиль " + getBrand() + " " + getModel() + " прошел диагностику.");
+        return false;
+    }
 }
