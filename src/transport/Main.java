@@ -110,7 +110,7 @@ public class Main {
         }
 
 
-        Transport car1 = new Car("Авто №1 ", " Модель №1", 1.6, driverB1, Car.BodyType.TYPE1, mechanics);
+        Transport car1  = new Car("Авто №1 ", " Модель №1", 1.6, driverB1, Car.BodyType.TYPE1, mechanics);
         Transport car2 = new Car("Авто №2 ", " Модель №2", 2.0, driverB2, Car.BodyType.TYPE2, mechanics);
         Transport bus1 = new Bus("Автобус №1 ", " Модель №1", 19.0, driverD2, Bus.Capacity.LARGE, mechanics);
         Transport bus2 = new Bus("Автобус №2 ", " Модель №2", 11.0, driverD1, Bus.Capacity.EXTRA_LARGE, mechanics);
