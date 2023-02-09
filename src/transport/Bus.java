@@ -1,5 +1,7 @@
 package transport;
 
+import java.util.List;
+
 public class Bus extends Transport<DriverD>{
 
     private Capacity capacity;
@@ -19,6 +21,8 @@ public class Bus extends Transport<DriverD>{
             this.upCapacity = upCapacity;
         }
 
+
+        //region Getters-Setters
         public int getDownCapacity() {
             return downCapacity;
         }
@@ -35,6 +39,8 @@ public class Bus extends Transport<DriverD>{
             this.upCapacity = upCapacity;
         }
 
+        //endregion
+
         @Override
         public String toString() {
             return "Вместимость: " + getDownCapacity() + " - " + getUpCapacity() + " мест";
@@ -45,8 +51,8 @@ public class Bus extends Transport<DriverD>{
                String model,
                double engineVolume,
                DriverD driver,
-               Capacity capacity) {
-        super(brand, model, engineVolume, driver);
+               Capacity capacity, List<Mechanic> mechanic) {
+        super(brand, model, engineVolume, driver, mechanic);
         this.capacity=capacity;
 
     }
