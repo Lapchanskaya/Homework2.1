@@ -5,7 +5,7 @@ import java.util.Queue;
 public class ServiceStation {
 
     private Transport transport;
-    private Queue <Transport> queue;
+  private Queue <Transport> queue;
 
     public ServiceStation ( Transport transport){
         this.transport = transport;

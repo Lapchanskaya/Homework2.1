@@ -1,6 +1,7 @@
 package transport;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Bus extends Transport<DriverD>{
 
@@ -121,5 +122,8 @@ public class Bus extends Transport<DriverD>{
     public boolean passDiagnostics() {
         throw new TransportTypeException("Автобусы не проходят диагностику.");
     }
+
+
+
 }
 
