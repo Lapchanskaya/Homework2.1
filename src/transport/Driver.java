@@ -41,4 +41,12 @@ public abstract  class Driver {
     public void setExperience(int experience) {
         this.experience = experience;
     }
+
+    @Override
+    public String toString() {
+        return "ФИО водителя : " + fullName + '\'' +
+                ", Водительское удостоверение : " + driverLicense +
+                ", Опыт вождения: " + experience +
+                '}';
+    }
 }
