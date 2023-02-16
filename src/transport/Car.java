@@ -1,6 +1,7 @@
 package transport;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Car  extends Transport<DriverB> {
 
@@ -108,6 +109,8 @@ public class Car  extends Transport<DriverB> {
         System.out.println("Легковой автомобиль " + getBrand() + " " + getModel() + " прошел диагностику.");
         return false;
     }
+
+
 }
 
 

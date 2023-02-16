@@ -7,7 +7,7 @@ import java.util.Objects;
 
 import static transport.ValidateUtils.validateString;
 
-public  abstract class Transport<T extends Driver> implements Competing {
+public  abstract class  Transport<T extends Driver> implements Competing {
 
     private final String brand;
     private final String model;
@@ -93,18 +93,17 @@ public  abstract class Transport<T extends Driver> implements Competing {
                 " Объем двигателя: " + this.engineVolume;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Transport)) return false;
         Transport transport = (Transport) o;
-        return Double.compare(transport.getEngineVolume(), getEngineVolume()) == 0 && getBrand().equals(transport.getBrand()) &&
-                getModel().equals(transport.getModel());
+        return Double.compare(transport.getEngineVolume(), getEngineVolume()) == 0 && getBrand().equals(transport.getBrand()) && getModel().equals(transport.getModel());
     }
-
     @Override
     public int hashCode() {
-        return Objects.hash(getBrand(),getModel(),getEngineVolume());
+        return Objects.hash(getBrand(), getModel(), getEngineVolume());
     }
 }
 
