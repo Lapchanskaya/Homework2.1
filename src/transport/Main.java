@@ -94,6 +94,7 @@ public class Main {
         DriverD driverD1 = new DriverD("Архипов Фёдор Максимович, Категории D", true, 6);
 
         DriverD driverD2 = new DriverD("Соколов Лука Александрович, Категории D", false, 2);
+        DriverB driverB3 = new DriverB("Алешин Максим Сергеевич, Категории В", true, 11);
 
 
         Mechanic mechanic1 = new Mechanic(" Лебедев Александр ", "Автолюб");
@@ -165,14 +166,16 @@ public class Main {
        drivers.add(driverC2);
        drivers.add(driverD1);
        drivers.add(driverD2);
+        drivers.add(driverB3);
+
         System.out.println(drivers);
         if (drivers.contains(driverC1) || drivers.contains(driverC2) ||drivers.contains(driverB1) || drivers.contains(driverB2) ||
                 drivers.contains(driverD1) || drivers.contains(driverD2)){
             System.out.println( " Такой водитель уже есть!");
         }
-        drivers.add(driverC1);
-        drivers.add(driverD1);
-        drivers.add(driverB2);
+        drivers.add(driverB3);
+
+
 
 
         Iterator<Object> iterDrivers = drivers.iterator();
